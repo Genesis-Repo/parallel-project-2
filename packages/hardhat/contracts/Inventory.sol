@@ -51,4 +51,13 @@ contract Inventory is Ownable, ERC721Enumerable {
         Article memory article = articles[_articleId];
         return (article.name, article.description, article.price, article.image, article.warehouseAddress);
     }
+
+    // Function to update details of an existing article
+    function updateArticle(uint256 _articleId, string memory _name, string memory _description, uint256 _price, string memory _image) external {
+        Article storage article = articles[_articleId];
+        article.name = _name;
+        article.description = _description;
+        article.price = _price;
+        article.image = _image;
+    }
 }
